@@ -11,7 +11,7 @@ namespace CIS.API.DataTransferObjects.Companies.Request
 
         public string CompanyNameArabic { get; set; }
 
-        public string CompanyAddessEnglish { get; set; }
+        public string CompanyAddressEnglish { get; set; }
 
         public string CompanyAddressArabic { get; set; }
 
