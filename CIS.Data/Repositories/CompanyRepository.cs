@@ -32,5 +32,19 @@ namespace CIS.Data.Repositories
             return await _dbContext.Companies
                                    .Where(company => company.IsActive).ToListAsync(token);
         }
+
+        public async Task<CompanyEntity> UpdateCompanyByIdAsync(CompanyEntity companyEntity, CancellationToken token)
+        {
+            _dbContext.Companies.Update(companyEntity);
+            await _dbContext.SaveChangesAsync(token);
+            return companyEntity;
+        }
+
+        public async Task DeleteCompanyByIdAsync(int companyId, CancellationToken token)
+        {
+            var companyEntity = await _dbContext.Companies.SingleAsync(company => company.Id == companyId, token);
+            companyEntity.IsActive = false;
+            await _dbContext.SaveChangesAsync(token);
+        }
     }
 }
