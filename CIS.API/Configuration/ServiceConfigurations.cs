@@ -20,6 +20,7 @@ using CIS.API.DataTransferObjects.Patients.Request;
 using CIS.API.Validators.Patients;
 using CIS.API.DataTransferObjects.Appointments.Request;
 using CIS.API.Validators.Appointments;
+using CIS.API.Controllers;
 
 namespace CIS.API.Configuration
 {
@@ -37,6 +38,8 @@ namespace CIS.API.Configuration
 
             serviceCollection.AddScoped<IPatientsService, PatientsService>();
             serviceCollection.AddScoped<IAppointmentsService, AppointmentsService>();
+
+            serviceCollection.AddScoped<ICompanyService, CompanyService>();
         }
 
         public static void AddRepositories(this IServiceCollection serviceCollection)
@@ -50,6 +53,8 @@ namespace CIS.API.Configuration
 
             serviceCollection.AddScoped<IPatientRepository, PatientRepository>();
             serviceCollection.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
+            serviceCollection.AddScoped<ICompanyRepository, CompanyRepository>();
         }
 
         public static void AddSqlServerDbContext(this IServiceCollection serviceCollection, string connectionString)
@@ -71,7 +76,8 @@ namespace CIS.API.Configuration
 
             var autoMapperAssemblies = new List<Assembly>
             {
-                
+                typeof(CompanyController).GetTypeInfo().Assembly,
+                typeof(CompanyService).GetTypeInfo().Assembly
             };
 
             serviceCollection.AddAutoMapper(autoMapperAssemblies);

@@ -20,5 +20,7 @@ namespace CIS.Data
         public DbSet<AppointmentEntity> Appointments { get; set; }
 
         public DbSet<AppointmentStatusEntity> AppointmentStatus { get; set; }
+
+        public DbSet<CompanyEntity> Companies { get; set; }
     }
 }

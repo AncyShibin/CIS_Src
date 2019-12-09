@@ -79,12 +79,12 @@ namespace CIS.API.Controllers
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(GetGenderResponseDto))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetGenderCIStAsync(
+        public async Task<IActionResult> GetGenderListAsync(
             CancellationToken token = default)
         {
             try
             {
-                var serviceResult = await _genderService.GetGenderCIStAsync(token);
+                var serviceResult = await _genderService.GetGenderListAsync(token);
                 return new OkObjectResult(Mapper.Map<IEnumerable<GetGenderResponseDto>>(serviceResult));
             }
             catch (Exception)

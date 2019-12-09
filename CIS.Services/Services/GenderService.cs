@@ -34,9 +34,9 @@ namespace CIS.Services.Services
             var genderEntity = await _genderRepository.GetGenderByIdAsync(genderId, token);
             return _mapper.Map<GenderServiceObject>(genderEntity);
         }
-        public async Task<IEnumerable<GenderServiceObject>> GetGenderCIStAsync(CancellationToken token)
+        public async Task<IEnumerable<GenderServiceObject>> GetGenderListAsync(CancellationToken token)
         {
-            var serviceResult = await _genderRepository.GetGenderCIStAsync(token);
+            var serviceResult = await _genderRepository.GetGenderListAsync(token);
             return _mapper.Map<IEnumerable<GenderServiceObject>>(serviceResult);
         }
         public async Task<GenderServiceObject> UpdateGenderByIdAsync(GenderServiceObject genderServiceObject, CancellationToken token)

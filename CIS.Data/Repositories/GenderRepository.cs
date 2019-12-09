@@ -32,7 +32,7 @@ namespace CIS.Data.Repositories
             return genderEntity;
         }
 
-        public async Task<IEnumerable<GenderEntity>> GetGenderCIStAsync(CancellationToken token)
+        public async Task<IEnumerable<GenderEntity>> GetGenderListAsync(CancellationToken token)
         {
             return await _dbContext.Genders
                                    .Where(gender => gender.IsActive).ToListAsync(token);
