@@ -69,6 +69,9 @@ namespace CIS.API.Configuration
             this.CreateMap<AddCompanyRequestDto, CompanyServiceObject>();
             this.CreateMap<CompanyServiceObject, AddCompanyResponseDto>();
 
+            this.CreateMap<UpdateCompanyRequestDto, CompanyServiceObject>();
+            this.CreateMap<CompanyServiceObject, UpdateCompanyResponseDto>();
+
             this.CreateMap<CompanyServiceObject, GetCompanyResponseDto>();
 
         }
