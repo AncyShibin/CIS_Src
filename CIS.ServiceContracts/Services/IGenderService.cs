@@ -13,7 +13,7 @@ namespace CIS.ServiceContracts.Services
 
         Task<GenderServiceObject> GetGenderByIdAsync(int genderId, CancellationToken token);
 
-        Task<IEnumerable<GenderServiceObject>> GetGenderCIStAsync(CancellationToken token);
+        Task<IEnumerable<GenderServiceObject>> GetGenderListAsync(CancellationToken token);
 
         Task<GenderServiceObject> UpdateGenderByIdAsync(GenderServiceObject genderServiceObject, CancellationToken token);
 

@@ -9,6 +9,8 @@ using CIS.API.DataTransferObjects.Patients.Request;
 using CIS.API.DataTransferObjects.Patients.Response;
 using CIS.API.DataTransferObjects.Appointments.Request;
 using CIS.API.DataTransferObjects.Appointments.Response;
+using CIS.API.DataTransferObjects.Companies.Request;
+using CIS.API.DataTransferObjects.Companies.Response;
 
 namespace CIS.API.Configuration
 {
@@ -21,6 +23,8 @@ namespace CIS.API.Configuration
 
             this.CreateMapForPatients();
             this.CreateMapForAppointments();
+
+            this.CreateMapForCompanies();
         }     
 
         private void CreateMapForGender()
@@ -58,6 +62,15 @@ namespace CIS.API.Configuration
             this.CreateMap<AppointmentServiceObject, SearchAppointmentsResponseDto>();
 
             this.CreateMap<AppointmentStatusServiceObject, AppointmentStatusResponseDto>();
+        }
+
+        private void CreateMapForCompanies()
+        {
+            this.CreateMap<AddCompanyRequestDto, CompanyServiceObject>();
+            this.CreateMap<CompanyServiceObject, AddCompanyResponseDto>();
+
+            this.CreateMap<CompanyServiceObject, GetCompanyResponseDto>();
+
         }
     }
 }

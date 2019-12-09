@@ -13,7 +13,7 @@ namespace CIS.DataContracts.Repositories
 
         Task<GenderEntity> CreateGenderAsync(GenderEntity genderEntity, CancellationToken token);
 
-        Task<IEnumerable<GenderEntity>> GetGenderCIStAsync(CancellationToken token);
+        Task<IEnumerable<GenderEntity>> GetGenderListAsync(CancellationToken token);
 
         Task<GenderEntity> UpdateGenderByIdAsync(GenderEntity genderEntity, CancellationToken token);
 
