@@ -14,4 +14,8 @@
       <PackageReference Include="AutoMapper" Version="9.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Validations\" />
+    </ItemGroup>
+
 </Project>

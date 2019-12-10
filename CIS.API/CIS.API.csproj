@@ -33,4 +33,8 @@
       <ProjectReference Include="..\CIS.Services\CIS.Services.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Validators\" />
+    </ItemGroup>
+
 </Project>

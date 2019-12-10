@@ -11,16 +11,6 @@ namespace CIS.Data
 
         }
 
-        public DbSet<DepartmentEntity> Departments { get; set; }
-
-        public DbSet<GenderEntity> Genders { get; set; }
-
-        public DbSet<UserEntity> Users { get; set; }
-
-        public DbSet<AppointmentEntity> Appointments { get; set; }
-
-        public DbSet<AppointmentStatusEntity> AppointmentStatus { get; set; }
-
         public DbSet<CompanyEntity> Companies { get; set; }
 
         public DbSet<FacilityEntity> Facilities { get; set; }
