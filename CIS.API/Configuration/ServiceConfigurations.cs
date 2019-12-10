@@ -6,7 +6,6 @@ using CIS.Data;
 using CIS.Data.Repositories;
 using CIS.DataContracts.Repositories;
 using CIS.ServiceContracts.Services;
-using CIS.ServiceContracts.Validations;
 using CIS.Services.Services;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
