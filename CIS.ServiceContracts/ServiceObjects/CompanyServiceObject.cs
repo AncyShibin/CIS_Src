@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CIS.ServiceContracts.ServiceObjects
 {
-    public class CompanyServiceObject
+    public sealed class CompanyServiceObject
     {
         public int Id { get; set; }
 

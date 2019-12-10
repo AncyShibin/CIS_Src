@@ -37,6 +37,12 @@ namespace CIS.Services.Services
             return _mapper.Map<IEnumerable<CompanyServiceObject>>(serviceResult);
         }
 
+        public async Task<CompanyServiceObject> GetCompanyByIdAsync(int companyId, CancellationToken token)
+        {
+            var serviceResult = await _companyRepository.GetCompanyByIdAsync(companyId, token);
+            return _mapper.Map<CompanyServiceObject>(serviceResult);
+        }
+
         public async Task<CompanyServiceObject> UpdateCompanyByIdAsync(CompanyServiceObject companyServiceObject, CancellationToken token)
         {
             var companyEntity = _mapper.Map<CompanyEntity>(companyServiceObject);

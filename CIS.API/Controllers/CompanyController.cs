@@ -65,6 +65,24 @@ namespace CIS.API.Controllers
             }
         }
 
+        [HttpGet("{companyId}")]
+        [ProducesResponseType(200, Type = typeof(GetCompanyResponseDto))]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> GetCompanyByIdAsync(
+            [FromRoute] int companyId,
+            CancellationToken token = default)
+        {
+            try
+            {
+                var serviceResult = await _companyService.GetCompanyByIdAsync(companyId, token);
+                return new OkObjectResult(Mapper.Map<GetCompanyResponseDto>(serviceResult));
+            }
+            catch (Exception)
+            {
+                return new NotFoundResult();
+            }
+        }
+
         [HttpPut("{companyId}")]
         [ProducesResponseType(200, Type = typeof(UpdateCompanyResponseDto))]
         [ProducesResponseType(400)]

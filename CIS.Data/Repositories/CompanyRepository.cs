@@ -33,6 +33,11 @@ namespace CIS.Data.Repositories
                                    .Where(company => company.IsActive).ToListAsync(token);
         }
 
+        public async Task<CompanyEntity> GetCompanyByIdAsync(int companyId, CancellationToken token)
+        {
+            return await _dbContext.Companies.FirstOrDefaultAsync(company => company.Id == companyId && company.IsActive, token);
+        }
+
         public async Task<CompanyEntity> UpdateCompanyByIdAsync(CompanyEntity companyEntity, CancellationToken token)
         {
             _dbContext.Companies.Update(companyEntity);

@@ -14,6 +14,8 @@ namespace CIS.ServiceContracts.Services
 
         Task<IEnumerable<CompanyServiceObject>> GetCompanyListAsync(CancellationToken token);
 
+        Task<CompanyServiceObject> GetCompanyByIdAsync(int companyId, CancellationToken token);
+
         Task<CompanyServiceObject> UpdateCompanyByIdAsync(CompanyServiceObject companyServiceObject, CancellationToken token);
 
         Task DeleteCompanyByIdAsync(int companyId, CancellationToken token);
