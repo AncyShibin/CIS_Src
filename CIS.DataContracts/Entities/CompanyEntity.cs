@@ -15,7 +15,7 @@ namespace CIS.DataContracts.Entities
 
         [Column("company_name_arabic")] public string CompanyNameArabic { get; set; }
 
-        [Column("company_address_english")] public string CompanyAddessEnglish { get; set; }
+        [Column("company_address_english")] public string CompanyAddressEnglish { get; set; }
 
         [Column("company_address_arabic")] public string CompanyAddressArabic { get; set; }
 

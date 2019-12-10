@@ -13,7 +13,7 @@ namespace CIS.API.DataTransferObjects.Companies.Response
 
         public string CompanyNameArabic { get; set; }
 
-        public string CompanyAddessEnglish { get; set; }
+        public string CompanyAddressEnglish { get; set; }
 
         public string CompanyAddressArabic { get; set; }
 
