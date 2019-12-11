@@ -8,7 +8,5 @@ namespace CIS.API.DataTransferObjects.VisitTypes.Request
     public sealed class UpdateVisitTypeRequestDto
     {
         public string VisitType { get; set; }
-
-        public bool Status { get; set; }
     }
 }
