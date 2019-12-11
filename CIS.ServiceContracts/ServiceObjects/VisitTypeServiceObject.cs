@@ -9,5 +9,7 @@ namespace CIS.ServiceContracts.ServiceObjects
         public int Id { get; set; }
 
         public string VisitType { get; set; }
+
+        public bool Status { get; set; }
     }
 }

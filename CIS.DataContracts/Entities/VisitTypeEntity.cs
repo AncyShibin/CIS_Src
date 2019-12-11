@@ -12,5 +12,8 @@ namespace CIS.DataContracts.Entities
         [Key] [Column("visit_type_id")] public int Id { get; set; }
 
         [Column("visit_type")] public string VisitType { get; set; }
+
+        [Column("status")] public bool Status { get; set; }
+
     }
 }
