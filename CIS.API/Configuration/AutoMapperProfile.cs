@@ -43,12 +43,15 @@ namespace CIS.API.Configuration
         private void CreateMapForVisitTypes()
         {
             this.CreateMap<AddVisitTypeRequestDto, VisitTypeServiceObject>();
-            this.CreateMap<VisitTypeServiceObject, AddVisitTypeResponseDto>();
+            this.CreateMap<VisitTypeServiceObject, AddVisitTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
 
             this.CreateMap<UpdateVisitTypeRequestDto, VisitTypeServiceObject>();
-            this.CreateMap<VisitTypeServiceObject, UpdateVisitTypeResponseDto>();
+            this.CreateMap<VisitTypeServiceObject, UpdateVisitTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
 
-            this.CreateMap<VisitTypeServiceObject, GetVisitTypeResponseDto>();
+            this.CreateMap<VisitTypeServiceObject, GetVisitTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
         }
     }
 }

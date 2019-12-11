@@ -10,6 +10,6 @@ namespace CIS.ServiceContracts.ServiceObjects
 
         public string VisitType { get; set; }
 
-        public bool Status { get; set; }
+        public string IsActive { get; set; }
     }
 }
