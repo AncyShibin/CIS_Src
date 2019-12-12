@@ -17,7 +17,7 @@ namespace CIS.API.Controllers
     [Route("api/v1/[controller]")]
     [Produces("application/json")]
 
-    public class VisitTypeController : ApiController
+    public sealed class VisitTypeController : ApiController
     {
         private readonly IVisitTypeService _visitTypeService;
 
