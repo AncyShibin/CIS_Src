@@ -7,7 +7,7 @@ namespace CIS.API.DataTransferObjects.FacilityAndActivity.Response
 {
     public sealed class UpdateFacilityAndActivityResponseDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public int FacilityId { get; set; }
 

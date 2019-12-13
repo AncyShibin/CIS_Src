@@ -7,7 +7,7 @@ namespace CIS.API.DataTransferObjects.ActivityTypes.Response
 {
     public sealed class GetActivityTypeResponseDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string ActivityType { get; set; }
 
