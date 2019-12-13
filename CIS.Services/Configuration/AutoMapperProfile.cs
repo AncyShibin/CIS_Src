@@ -12,6 +12,7 @@ namespace CIS.Services.Configuration
             this.CreateMapForCompanies();
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
+            this.CreateMapForRegulatories();
             this.CreateMapForEncounterTypes();
             this.CreateMapForActivityTypes();
             this.CreateMapForFacilityAndActivities();
@@ -44,6 +45,14 @@ namespace CIS.Services.Configuration
             this.CreateMap<VisitTypeEntity, VisitTypeServiceObject>();
         }
 
+        private void CreateMapForRegulatories()
+        {
+            this.CreateMap<RegulatoryServiceObject, RegulatoryEntity>()
+                .ForMember(regulatoryEntity => regulatoryEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(regulatoryEntity => regulatoryEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<RegulatoryEntity, RegulatoryServiceObject>();
+            }
         private void CreateMapForEncounterTypes()
         {
             this.CreateMap<EncounterTypeServiceObject, EncounterTypeEntity>()

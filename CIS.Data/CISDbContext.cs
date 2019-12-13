@@ -16,6 +16,8 @@ namespace CIS.Data
         public DbSet<FacilityEntity> Facilities { get; set; }
 
         public DbSet<VisitTypeEntity> VisitTypes { get; set; }
+
+        public DbSet<RegulatoryEntity> Regulatories { get; set; }
         
         public DbSet<EncounterTypeEntity> EncounterTypes { get; set; }
 
