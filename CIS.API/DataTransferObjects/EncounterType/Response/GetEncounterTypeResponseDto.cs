@@ -7,7 +7,7 @@ namespace CIS.API.DataTransferObjects.EncounterType.Response
 {
     public sealed class GetEncounterTypeResponseDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string EncounterType { get; set; }
 
