@@ -13,7 +13,7 @@ namespace CIS.API.DataTransferObjects.FacilityAndActivity.Response
 
         public int ActivityId { get; set; }
 
-        public string Status { get; set; }
+        public bool Status { get; set; }
 
         public FacilityResponseDto Facility { get; set; }
 

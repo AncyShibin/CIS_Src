@@ -7,7 +7,7 @@ namespace CIS.API.DataTransferObjects.Companies.Response
 {
     public sealed class UpdateCompanyResponseDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string CompanyNameEnglish { get; set; }
 

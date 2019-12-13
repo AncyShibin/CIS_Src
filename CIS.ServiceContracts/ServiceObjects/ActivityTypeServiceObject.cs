@@ -8,6 +8,8 @@ namespace CIS.ServiceContracts.ServiceObjects
     {
         public int Id { get; set; }
 
+        public string ActivityType { get; set; }
+
         public int ActivityNumber { get; set; }
 
         public bool IsActive { get; set; }

@@ -7,6 +7,8 @@ namespace CIS.API.DataTransferObjects.ActivityTypes.Request
 {
     public sealed class AddActivityTypeRequestDto
     {
+        public string ActivityType { get; set; }
+
         public int ActivityNumber { get; set; }
     }
 }
