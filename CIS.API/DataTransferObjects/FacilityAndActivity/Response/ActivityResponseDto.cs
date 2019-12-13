@@ -7,8 +7,10 @@ namespace CIS.API.DataTransferObjects.FacilityAndActivity.Response
 {
     public sealed class ActivityResponseDto
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
-        public string ActivityNumber { get; set; }
+        public string ActivityType { get; set; }
+
+        public int ActivityNumber { get; set; }
     }
 }

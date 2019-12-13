@@ -11,6 +11,8 @@ namespace CIS.DataContracts.Entities
     {
         [Key] [Column("activity_type_id")] public int Id { get; set; }
 
+        [Column("activity_type")] public string ActivityType { get; set; }
+
         [Column("activity_number")] public int ActivityNumber { get; set; }
     }
 }
