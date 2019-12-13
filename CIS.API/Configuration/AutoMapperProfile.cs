@@ -6,6 +6,8 @@ using CIS.API.DataTransferObjects.Facilities.Request;
 using CIS.API.DataTransferObjects.Facilities.Response;
 using CIS.API.DataTransferObjects.VisitTypes.Response;
 using CIS.API.DataTransferObjects.VisitTypes.Request;
+using CIS.API.DataTransferObjects.Regulatory.Response;
+using CIS.API.DataTransferObjects.Regulatory.Request;
 
 namespace CIS.API.Configuration
 {
@@ -16,6 +18,7 @@ namespace CIS.API.Configuration
             this.CreateMapForCompanies();
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
+            this.CreateMapForRegulatory();
         }     
 
         private void CreateMapForCompanies()
@@ -51,6 +54,19 @@ namespace CIS.API.Configuration
                 .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
 
             this.CreateMap<VisitTypeServiceObject, GetVisitTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+        }
+        private void CreateMapForRegulatory()
+        {
+            this.CreateMap<AddRegulatoryRequestDto, RegulatoryServiceObject>();
+            this.CreateMap<RegulatoryServiceObject, AddRegulatoryResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<UpdateRegulatoryRequestDto, RegulatoryServiceObject>();
+            this.CreateMap<RegulatoryServiceObject, UpdateRegulatoryResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<RegulatoryServiceObject, GetRegulatoryResponseDto>()
                 .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
         }
     }
