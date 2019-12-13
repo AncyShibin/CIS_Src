@@ -13,6 +13,8 @@ namespace CIS.Services.Configuration
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
             this.CreateMapForEncounterTypes();
+            this.CreateMapForActivityTypes();
+            this.CreateMapForFacilityAndActivities();
         }
 
         private void CreateMapForCompanies()
@@ -41,6 +43,7 @@ namespace CIS.Services.Configuration
 
             this.CreateMap<VisitTypeEntity, VisitTypeServiceObject>();
         }
+
         private void CreateMapForEncounterTypes()
         {
             this.CreateMap<EncounterTypeServiceObject, EncounterTypeEntity>()
@@ -48,6 +51,24 @@ namespace CIS.Services.Configuration
                 .ForMember(encounterTypeEntity => encounterTypeEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
 
             this.CreateMap<EncounterTypeEntity, EncounterTypeServiceObject>();
+            }
+
+        private void CreateMapForActivityTypes()
+        {
+            this.CreateMap<ActivityTypeServiceObject, ActivityTypeEntity>()
+                .ForMember(activityTypeEntity => activityTypeEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(activityTypeEntity => activityTypeEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<ActivityTypeEntity, ActivityTypeServiceObject>();
+        }
+
+        private void CreateMapForFacilityAndActivities()
+        {
+            this.CreateMap<FacilityAndActivityServiceObject, FacilityAndActivityEntity>()
+                .ForMember(facilityAndActivityEntity => facilityAndActivityEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(facilityAndActivityEntity => facilityAndActivityEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<FacilityAndActivityEntity, FacilityAndActivityServiceObject>();
         }
     }
 }

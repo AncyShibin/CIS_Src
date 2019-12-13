@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CIS.API.DataTransferObjects.Facilities.Response
+namespace CIS.API.DataTransferObjects.FacilityAndActivity.Response
 {
-    public sealed class GetFacilityResponseDto
+    public sealed class FacilityResponseDto
     {
         public int Id { get; set; }
 

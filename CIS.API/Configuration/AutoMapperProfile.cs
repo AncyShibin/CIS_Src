@@ -8,6 +8,10 @@ using CIS.API.DataTransferObjects.VisitTypes.Response;
 using CIS.API.DataTransferObjects.VisitTypes.Request;
 using CIS.API.DataTransferObjects.EncounterType.Request;
 using CIS.API.DataTransferObjects.EncounterType.Response;
+using CIS.API.DataTransferObjects.ActivityTypes.Request;
+using CIS.API.DataTransferObjects.ActivityTypes.Response;
+using CIS.API.DataTransferObjects.FacilityAndActivity.Request;
+using CIS.API.DataTransferObjects.FacilityAndActivity.Response;
 
 namespace CIS.API.Configuration
 {
@@ -19,6 +23,8 @@ namespace CIS.API.Configuration
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
             this.CreateMapForEncounterTypes();
+            this.CreateMapForActivityTypes();
+            this.CreateMapForFacilityAndActivities();
         }
 
         private void CreateMapForCompanies()
@@ -68,6 +74,37 @@ namespace CIS.API.Configuration
 
             this.CreateMap<EncounterTypeServiceObject, GetEncounterTypeResponseDto>()
                 .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+}
+
+        private void CreateMapForActivityTypes()
+        {
+            this.CreateMap<AddActivityTypeRequestDto, ActivityTypeServiceObject>();
+            this.CreateMap<ActivityTypeServiceObject, AddActivityTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<UpdateActivityTypeRequestDto, ActivityTypeServiceObject>();
+            this.CreateMap<ActivityTypeServiceObject, UpdateActivityTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<ActivityTypeServiceObject, GetActivityTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+        }
+
+        private void CreateMapForFacilityAndActivities()
+        {
+            this.CreateMap<AddFacilityAndActivityRequestDto, FacilityAndActivityServiceObject>();
+            this.CreateMap<FacilityAndActivityServiceObject, AddFacilityAndActivityResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<UpdateFacilityAndActivityRequestDto, FacilityAndActivityServiceObject>();
+            this.CreateMap<FacilityAndActivityServiceObject, UpdateFacilityAndActivityResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<FacilityAndActivityServiceObject, GetFacilityAndActivityResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<FacilityServiceObject, FacilityResponseDto>();
+            this.CreateMap<ActivityTypeServiceObject, ActivityResponseDto>();
         }
     }
 }
