@@ -6,6 +6,8 @@ using CIS.API.DataTransferObjects.Facilities.Request;
 using CIS.API.DataTransferObjects.Facilities.Response;
 using CIS.API.DataTransferObjects.VisitTypes.Response;
 using CIS.API.DataTransferObjects.VisitTypes.Request;
+using CIS.API.DataTransferObjects.EncounterType.Request;
+using CIS.API.DataTransferObjects.EncounterType.Response;
 using CIS.API.DataTransferObjects.ActivityTypes.Request;
 using CIS.API.DataTransferObjects.ActivityTypes.Response;
 using CIS.API.DataTransferObjects.FacilityAndActivity.Request;
@@ -20,9 +22,10 @@ namespace CIS.API.Configuration
             this.CreateMapForCompanies();
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
+            this.CreateMapForEncounterTypes();
             this.CreateMapForActivityTypes();
             this.CreateMapForFacilityAndActivities();
-        }     
+        }
 
         private void CreateMapForCompanies()
         {
@@ -59,6 +62,19 @@ namespace CIS.API.Configuration
             this.CreateMap<VisitTypeServiceObject, GetVisitTypeResponseDto>()
                 .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
         }
+        private void CreateMapForEncounterTypes()
+        {
+            this.CreateMap<AddEncounterTypeRequestDto, EncounterTypeServiceObject>();
+            this.CreateMap<EncounterTypeServiceObject, AddEncounterTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<UpdateEncounterTypeRequestDto, EncounterTypeServiceObject>();
+            this.CreateMap<EncounterTypeServiceObject, UpdateEncounterTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<EncounterTypeServiceObject, GetEncounterTypeResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+}
 
         private void CreateMapForActivityTypes()
         {

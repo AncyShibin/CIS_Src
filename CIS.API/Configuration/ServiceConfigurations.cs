@@ -26,6 +26,7 @@ namespace CIS.API.Configuration
             serviceCollection.AddScoped<ICompanyService, CompanyService>();
             serviceCollection.AddScoped<IFacilityService, FacilityService>();
             serviceCollection.AddScoped<IVisitTypeService, VisitTypeService>();
+            serviceCollection.AddScoped<IEncounterTypeService, EncounterTypeService>();
             serviceCollection.AddScoped<IActivityTypeService, ActivityTypeService>();
             serviceCollection.AddScoped<IFacilityAndActivityService, FacilityAndActivityService>();
         }
@@ -40,6 +41,7 @@ namespace CIS.API.Configuration
             serviceCollection.AddScoped<ICompanyRepository, CompanyRepository>();
             serviceCollection.AddScoped<IFacilityRepository, FacilityRepository>();
             serviceCollection.AddScoped<IVisitTypeRepository, VisitTypeRepository>();
+            serviceCollection.AddScoped<IEncounterTypeRepository, EncounterTypeRepository>();
             serviceCollection.AddScoped<IActivityTypeRepository, ActivityTypeRepository>();
             serviceCollection.AddScoped<IFacilityAndActivityRepository, FacilityAndActivityRepository>();
         }
