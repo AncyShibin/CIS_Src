@@ -29,7 +29,7 @@ namespace CIS.API.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(201, Type = typeof(AddEncounterTypeRequestDto))]
+        [ProducesResponseType(201, Type = typeof(AddEncounterTypeResponseDto))]
         [ProducesResponseType(400)]
         public async Task<IActionResult> CreateEncounterTypeAsync(
            [FromBody] AddEncounterTypeRequestDto addEncounterTypeRequestDto,
