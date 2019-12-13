@@ -11,6 +11,6 @@ namespace CIS.API.DataTransferObjects.Regulatory.Response
 
         public string RegulatoryName { get; set; }
 
-        public string Status { get; set; }
+        public bool Status { get; set; }
     }
 }

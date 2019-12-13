@@ -12,7 +12,7 @@ namespace CIS.Services.Configuration
             this.CreateMapForCompanies();
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
-            this.CreateMapForRegulatory();
+            this.CreateMapForRegulatories();
         }
 
         private void CreateMapForCompanies()
@@ -42,7 +42,7 @@ namespace CIS.Services.Configuration
             this.CreateMap<VisitTypeEntity, VisitTypeServiceObject>();
         }
 
-        private void CreateMapForRegulatory()
+        private void CreateMapForRegulatories()
         {
             this.CreateMap<RegulatoryServiceObject, RegulatoryEntity>()
                 .ForMember(regulatoryEntity => regulatoryEntity.IsActive, opt => opt.MapFrom(x => true))

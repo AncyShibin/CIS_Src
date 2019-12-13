@@ -18,7 +18,7 @@ namespace CIS.API.Configuration
             this.CreateMapForCompanies();
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
-            this.CreateMapForRegulatory();
+            this.CreateMapForRegulatories();
         }     
 
         private void CreateMapForCompanies()
@@ -56,7 +56,7 @@ namespace CIS.API.Configuration
             this.CreateMap<VisitTypeServiceObject, GetVisitTypeResponseDto>()
                 .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
         }
-        private void CreateMapForRegulatory()
+        private void CreateMapForRegulatories()
         {
             this.CreateMap<AddRegulatoryRequestDto, RegulatoryServiceObject>();
             this.CreateMap<RegulatoryServiceObject, AddRegulatoryResponseDto>()
