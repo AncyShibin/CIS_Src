@@ -4,12 +4,12 @@ using System.Text;
 
 namespace CIS.ServiceContracts.ServiceObjects
 {
-    public sealed class VisitTypeServiceObject
+    public sealed class EncounterTypeServiceObject
     {
         public int Id { get; set; }
 
-        public string VisitType { get; set; }
+        public string EncounterType { get; set; }
 
-        public bool IsActive { get; set; }
+        public string IsActive { get; set; }
     }
 }

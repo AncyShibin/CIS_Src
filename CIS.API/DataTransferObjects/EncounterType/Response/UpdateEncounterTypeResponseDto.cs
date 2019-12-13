@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CIS.API.DataTransferObjects.VisitTypes.Response
+namespace CIS.API.DataTransferObjects.EncounterType.Response
 {
-    public sealed class GetVisitTypeResponseDto
+    public sealed class UpdateEncounterTypeResponseDto
     {
         public string Id { get; set; }
 
-        public string VisitType { get; set; }
+        public string EncounterType { get; set; }
 
         public bool Status { get; set; }
     }

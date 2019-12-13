@@ -13,6 +13,9 @@ namespace CIS.Services.Configuration
             this.CreateMapForFacilities();
             this.CreateMapForVisitTypes();
             this.CreateMapForRegulatories();
+            this.CreateMapForEncounterTypes();
+            this.CreateMapForActivityTypes();
+            this.CreateMapForFacilityAndActivities();
         }
 
         private void CreateMapForCompanies()
@@ -49,6 +52,32 @@ namespace CIS.Services.Configuration
                 .ForMember(regulatoryEntity => regulatoryEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
 
             this.CreateMap<RegulatoryEntity, RegulatoryServiceObject>();
+            }
+        private void CreateMapForEncounterTypes()
+        {
+            this.CreateMap<EncounterTypeServiceObject, EncounterTypeEntity>()
+                .ForMember(encounterTypeEntity => encounterTypeEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(encounterTypeEntity => encounterTypeEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<EncounterTypeEntity, EncounterTypeServiceObject>();
+            }
+
+        private void CreateMapForActivityTypes()
+        {
+            this.CreateMap<ActivityTypeServiceObject, ActivityTypeEntity>()
+                .ForMember(activityTypeEntity => activityTypeEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(activityTypeEntity => activityTypeEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<ActivityTypeEntity, ActivityTypeServiceObject>();
+        }
+
+        private void CreateMapForFacilityAndActivities()
+        {
+            this.CreateMap<FacilityAndActivityServiceObject, FacilityAndActivityEntity>()
+                .ForMember(facilityAndActivityEntity => facilityAndActivityEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(facilityAndActivityEntity => facilityAndActivityEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<FacilityAndActivityEntity, FacilityAndActivityServiceObject>();
         }
     }
 }
