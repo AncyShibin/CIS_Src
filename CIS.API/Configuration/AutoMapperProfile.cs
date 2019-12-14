@@ -14,6 +14,8 @@ using CIS.API.DataTransferObjects.ActivityTypes.Request;
 using CIS.API.DataTransferObjects.ActivityTypes.Response;
 using CIS.API.DataTransferObjects.FacilityAndActivity.Request;
 using CIS.API.DataTransferObjects.FacilityAndActivity.Response;
+using CIS.API.DataTransferObjects.MedicalRecord.Request;
+using CIS.API.DataTransferObjects.MedicalRecord.Response;
 
 namespace CIS.API.Configuration
 {
@@ -28,6 +30,7 @@ namespace CIS.API.Configuration
             this.CreateMapForEncounterTypes();
             this.CreateMapForActivityTypes();
             this.CreateMapForFacilityAndActivities();
+            this.CreateMapForMedicalRecords();
         }
 
         private void CreateMapForCompanies()
@@ -121,6 +124,24 @@ namespace CIS.API.Configuration
 
             this.CreateMap<FacilityServiceObject, FacilityResponseDto>();
             this.CreateMap<ActivityTypeServiceObject, ActivityResponseDto>();
+        }
+        private void CreateMapForMedicalRecords()
+        {
+            this.CreateMap<AddMedicalRecordRequestDto, MedicalRecordServiceObject>();
+            this.CreateMap<MedicalRecordServiceObject, AddMedicalRecordResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<UpdateMedicalRecordRequestDto, MedicalRecordServiceObject>();
+            this.CreateMap<MedicalRecordServiceObject, UpdateMedicalRecordResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<MedicalRecordServiceObject, GetMedicalRecordResponseDto>()
+                .ForMember(dto => dto.Status, opt => opt.MapFrom(so => so.IsActive));
+
+            this.CreateMap<FacilityServiceObject, FacilitiesResponseDto>();
+            this.CreateMap<CompanyServiceObject, CompanyResponseDto>();
+            this.CreateMap<EncounterTypeServiceObject, EncounterResponseDto>();
+            this.CreateMap<RegulatoryServiceObject, RegulatoryResponseDto>();
         }
     }
 }
