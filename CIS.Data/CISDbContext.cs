@@ -26,5 +26,9 @@ namespace CIS.Data
         public DbSet<FacilityAndActivityEntity> FacilityAndActivityTypes { get; set; }
 
         public DbSet<MedicalRecordEntity> MedicalRecords { get; set; }
+
+        public DbSet<AppointmentEntity> Appointments { get; set; }
+
+        public DbSet<GenderEntity> Genders { get; set; }
     }
 }
