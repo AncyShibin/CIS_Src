@@ -16,6 +16,8 @@ using CIS.API.DataTransferObjects.FacilityAndActivity.Request;
 using CIS.API.DataTransferObjects.FacilityAndActivity.Response;
 using CIS.API.DataTransferObjects.MedicalRecord.Request;
 using CIS.API.DataTransferObjects.MedicalRecord.Response;
+using CIS.API.DataTransferObjects.Appointment.Request;
+using CIS.API.DataTransferObjects.Appointment.Response;
 
 namespace CIS.API.Configuration
 {
@@ -31,6 +33,7 @@ namespace CIS.API.Configuration
             this.CreateMapForActivityTypes();
             this.CreateMapForFacilityAndActivities();
             this.CreateMapForMedicalRecords();
+            this.CreateMapForAppointments();
         }
 
         private void CreateMapForCompanies()
@@ -142,6 +145,53 @@ namespace CIS.API.Configuration
             this.CreateMap<CompanyServiceObject, CompanyResponseDto>();
             this.CreateMap<EncounterTypeServiceObject, EncounterResponseDto>();
             this.CreateMap<RegulatoryServiceObject, RegulatoryResponseDto>();
+        }
+        private void CreateMapForAppointments()
+        {
+            this.CreateMap<AddAppointmentRequestDto, AppointmentServiceObject>()
+                .ForMember(so => so.POBox, opt => opt.MapFrom(dto => dto.Address.POBox))
+                .ForMember(so => so.Area, opt => opt.MapFrom(dto => dto.Address.Area))
+                .ForMember(so => so.City, opt => opt.MapFrom(dto => dto.Address.City))
+                .ForMember(so => so.Country, opt => opt.MapFrom(dto => dto.Address.Country))
+                .ForMember(so => so.Schedule, opt => opt.MapFrom(dto => dto.Schedule.ScheduledDate))
+                .ForMember(so => so.Comment, opt => opt.MapFrom(dto => dto.Comment.Comment));
+              
+            this.CreateMap<AppointmentServiceObject, AddAppointmentResponseDto>()
+                .ForMember(dto => dto.Address, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Schedule, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Comment, opt => opt.MapFrom(so => so));
+
+            this.CreateMap<UpdateAppointmentRequestDto, AppointmentServiceObject>()
+                .ForMember(so => so.POBox, opt => opt.MapFrom(dto => dto.Address.POBox))
+                .ForMember(so => so.Area, opt => opt.MapFrom(dto => dto.Address.Area))
+                .ForMember(so => so.City, opt => opt.MapFrom(dto => dto.Address.City))
+                .ForMember(so => so.Country, opt => opt.MapFrom(dto => dto.Address.Country))
+                .ForMember(so => so.Schedule, opt => opt.MapFrom(dto => dto.Schedule.ScheduledDate))
+                .ForMember(so => so.Comment, opt => opt.MapFrom(dto => dto.Comment.Comment));
+
+            this.CreateMap<AppointmentServiceObject, UpdateAppointmentResponseDto>()
+                .ForMember(dto => dto.Address, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Schedule, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Comment, opt => opt.MapFrom(so => so));
+
+            this.CreateMap<AppointmentServiceObject, GetAppointmentResponseDto>()
+                .ForMember(dto => dto.Address, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Schedule, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Comment, opt => opt.MapFrom(so => so));
+
+            this.CreateMap<AppointmentServiceObject, AddAddressInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, AddScheduleInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, AddCommentResponseDto>();
+            this.CreateMap<AppointmentServiceObject, GetAddressInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, GetScheduleInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, GetCommentResponseDto>();
+            this.CreateMap<AppointmentServiceObject, UpdateAddressInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, UpdateScheduleInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, UpdateCommentResponseDto>();
+
+            this.CreateMap<GenderServiceObject, AddGenderDto>();
+            this.CreateMap<GenderServiceObject, GetGenderDto>();
+            this.CreateMap<GenderServiceObject, UpdateGenderDto>();
         }
     }
 }
