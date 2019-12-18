@@ -18,6 +18,8 @@ using CIS.API.DataTransferObjects.MedicalRecord.Request;
 using CIS.API.DataTransferObjects.MedicalRecord.Response;
 using CIS.API.DataTransferObjects.Appointment.Request;
 using CIS.API.DataTransferObjects.Appointment.Response;
+using CIS.API.DataTransferObjects.Registration.Request;
+using CIS.API.DataTransferObjects.Registration.Response;
 
 namespace CIS.API.Configuration
 {
@@ -34,6 +36,7 @@ namespace CIS.API.Configuration
             this.CreateMapForFacilityAndActivities();
             this.CreateMapForMedicalRecords();
             this.CreateMapForAppointments();
+            this.CreateMapForRegistrations();
         }
 
         private void CreateMapForCompanies()
@@ -192,6 +195,50 @@ namespace CIS.API.Configuration
             this.CreateMap<GenderServiceObject, AddGenderDto>();
             this.CreateMap<GenderServiceObject, GetGenderDto>();
             this.CreateMap<GenderServiceObject, UpdateGenderDto>();
+        }
+
+        private void CreateMapForRegistrations()
+        {
+            this.CreateMap<AddRegistrationRequestDto, RegistrationServiceObject>()
+                .ForMember(so => so.Organization, opt => opt.MapFrom(dto => dto.Referral.Organization))
+                .ForMember(so => so.Physician, opt => opt.MapFrom(dto => dto.Referral.Physician))
+                .ForMember(so => so.MemberNumber, opt => opt.MapFrom(dto => dto.Insurance.MemberNumber))
+                .ForMember(so => so.EmployeeNumber, opt => opt.MapFrom(dto => dto.Insurance.EmployeeNumber))
+                .ForMember(so => so.Validity, opt => opt.MapFrom(dto => dto.Insurance.Validity))
+                .ForMember(so => so.Network, opt => opt.MapFrom(dto => dto.Insurance.Network))
+                .ForMember(so => so.SubNetwork, opt => opt.MapFrom(dto => dto.Insurance.SubNetwork));
+
+            this.CreateMap<RegistrationServiceObject, AddRegistrationResponseDto>()
+                .ForMember(dto => dto.Referral, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Insurance, opt => opt.MapFrom(so => so));
+
+            this.CreateMap<UpdateRegistrationRequestDto, RegistrationServiceObject>()
+               .ForMember(so => so.Organization, opt => opt.MapFrom(dto => dto.Referral.Organization))
+                .ForMember(so => so.Physician, opt => opt.MapFrom(dto => dto.Referral.Physician))
+                .ForMember(so => so.MemberNumber, opt => opt.MapFrom(dto => dto.Insurance.MemberNumber))
+                .ForMember(so => so.EmployeeNumber, opt => opt.MapFrom(dto => dto.Insurance.EmployeeNumber))
+                .ForMember(so => so.Validity, opt => opt.MapFrom(dto => dto.Insurance.Validity))
+                .ForMember(so => so.Network, opt => opt.MapFrom(dto => dto.Insurance.Network))
+                .ForMember(so => so.SubNetwork, opt => opt.MapFrom(dto => dto.Insurance.SubNetwork));
+
+            this.CreateMap<RegistrationServiceObject, UpdateRegistrationResponseDto>()
+                .ForMember(dto => dto.Referral, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Insurance, opt => opt.MapFrom(so => so));
+
+            this.CreateMap<RegistrationServiceObject, GetRegistrationResponseDto>()
+               .ForMember(dto => dto.Referral, opt => opt.MapFrom(so => so))
+                .ForMember(dto => dto.Insurance, opt => opt.MapFrom(so => so));
+
+            this.CreateMap<AppointmentServiceObject, AddReferralInformationRequestDto>();
+            this.CreateMap<AppointmentServiceObject, AddInsuranceDetailsRequestDto>();
+            this.CreateMap<AppointmentServiceObject, GetReferralInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, GetInsuranceDetailsResponseDto>();
+            this.CreateMap<AppointmentServiceObject, UpdateReferralInformationResponseDto>();
+            this.CreateMap<AppointmentServiceObject, UpdateInsuranceDetailsRequestDto>();
+
+            this.CreateMap<GenderServiceObject, AddRegistrationGenderDto>();
+            this.CreateMap<GenderServiceObject, GetRegistrationGenderDto>();
+            this.CreateMap<GenderServiceObject, UpdateRegistrationGenderDto>();
         }
     }
 }

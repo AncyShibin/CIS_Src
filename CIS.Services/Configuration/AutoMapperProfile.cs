@@ -18,6 +18,7 @@ namespace CIS.Services.Configuration
             this.CreateMapForFacilityAndActivities();
             this.CreateMapForMedicalRecords();
             this.CreateMapForAppointments();
+            this.CreateMapForRegistrations();
         }
 
         private void CreateMapForCompanies()
@@ -96,6 +97,14 @@ namespace CIS.Services.Configuration
                 .ForMember(appointmentEntity => appointmentEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
 
             this.CreateMap<AppointmentEntity, AppointmentServiceObject>();
+        }
+        private void CreateMapForRegistrations()
+        {
+            this.CreateMap<RegistrationServiceObject, RegistrationEntity>()
+                .ForMember(registrationEntity => registrationEntity.IsActive, opt => opt.MapFrom(x => true))
+                .ForMember(registrationEntity => registrationEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
+
+            this.CreateMap<RegistrationEntity, RegistrationServiceObject>();
         }
     }
 }
