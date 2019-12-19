@@ -229,12 +229,12 @@ namespace CIS.API.Configuration
                .ForMember(dto => dto.Referral, opt => opt.MapFrom(so => so))
                 .ForMember(dto => dto.Insurance, opt => opt.MapFrom(so => so));
 
-            this.CreateMap<AppointmentServiceObject, AddReferralInformationRequestDto>();
-            this.CreateMap<AppointmentServiceObject, AddInsuranceDetailsRequestDto>();
-            this.CreateMap<AppointmentServiceObject, GetReferralInformationResponseDto>();
-            this.CreateMap<AppointmentServiceObject, GetInsuranceDetailsResponseDto>();
-            this.CreateMap<AppointmentServiceObject, UpdateReferralInformationResponseDto>();
-            this.CreateMap<AppointmentServiceObject, UpdateInsuranceDetailsRequestDto>();
+            this.CreateMap<RegistrationServiceObject, AddReferralInformationRequestDto>();
+            this.CreateMap<RegistrationServiceObject, AddInsuranceDetailsRequestDto>();
+            this.CreateMap<RegistrationServiceObject, GetReferralInformationResponseDto>();
+            this.CreateMap<RegistrationServiceObject, GetInsuranceDetailsResponseDto>();
+            this.CreateMap<RegistrationServiceObject, UpdateReferralInformationResponseDto>();
+            this.CreateMap<RegistrationServiceObject, UpdateInsuranceDetailsRequestDto>();
 
             this.CreateMap<GenderServiceObject, AddRegistrationGenderDto>();
             this.CreateMap<GenderServiceObject, GetRegistrationGenderDto>();

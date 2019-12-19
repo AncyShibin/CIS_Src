@@ -15,7 +15,7 @@ namespace CIS.DataContracts.Entities
 
         [Column("name")] public string Name { get; set; }
 
-        [Column("date_of_birth")] public DataType DateOfBirth { get; set; }
+        [Column("date_of_birth")] public DateTime DateOfBirth { get; set; }
 
         [Column("gender_id")] public int GenderId { get; set; }
 
