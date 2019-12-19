@@ -32,6 +32,7 @@ namespace CIS.API.Configuration
             serviceCollection.AddScoped<IFacilityAndActivityService, FacilityAndActivityService>();
             serviceCollection.AddScoped<IMedicalRecordService, MedicalRecordService>();
             serviceCollection.AddScoped<IAppointmentService, AppointmentService>();
+            serviceCollection.AddScoped<IRegistrationService, RegistrationService>();
         }
 
         public static void AddRepositories(this IServiceCollection serviceCollection)
@@ -50,6 +51,7 @@ namespace CIS.API.Configuration
             serviceCollection.AddScoped<IFacilityAndActivityRepository, FacilityAndActivityRepository>();
             serviceCollection.AddScoped<IMedicalRecordRepository, MedicalRecordRepository>();
             serviceCollection.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            serviceCollection.AddScoped<IRegistrationRepository, RegistrationRepository>();
         }
 
         public static void AddSqlServerDbContext(this IServiceCollection serviceCollection, string connectionString)

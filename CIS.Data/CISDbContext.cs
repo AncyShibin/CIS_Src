@@ -30,5 +30,7 @@ namespace CIS.Data
         public DbSet<AppointmentEntity> Appointments { get; set; }
 
         public DbSet<GenderEntity> Genders { get; set; }
+
+        public DbSet<RegistrationEntity> Registrations { get; set; }
     }
 }
