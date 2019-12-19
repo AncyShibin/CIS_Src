@@ -7,6 +7,8 @@ namespace CIS.API.DataTransferObjects.Registration.Response
 {
     public sealed class GetRegistrationResponseDto
     {
+        public string Id { get; set; }
+
         public string Type { get; set; }
 
         public string Name { get; set; }

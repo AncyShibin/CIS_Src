@@ -7,6 +7,8 @@ namespace CIS.API.DataTransferObjects.Appointment.Response
 {
     public class GetAppointmentResponseDto
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public string DateOfBirth { get; set; }

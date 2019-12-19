@@ -105,6 +105,7 @@ namespace CIS.Services.Configuration
                 .ForMember(registrationEntity => registrationEntity.ModifiedOn, opt => opt.MapFrom(x => DateTime.UtcNow));
 
             this.CreateMap<RegistrationEntity, RegistrationServiceObject>();
+            this.CreateMap<GenderEntity, GenderServiceObject>();
         }
     }
 }
